@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->string('nis')->unique();
-            $table->enum('gender', ['L', 'P']);
+            $table->enum('gender', ['Pria', 'Wanita']); // Mengubah 'L', 'P' menjadi 'Pria', 'Wanita'
             $table->text('alamat');
             $table->string('kontak')->unique();
             $table->string('email');

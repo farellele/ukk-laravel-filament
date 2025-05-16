@@ -24,15 +24,6 @@ class User extends Authenticatable
 
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'password' => 'hashed', // Pastikan password otomatis di-hash saat disimpan
     ];
-
-    /**
-     * Set attribute password agar selalu di-hash sebelum disimpan.
-     */
-    public function setPasswordAttribute($value)
-    {
-        if (!empty($value) && !password_get_info($value)['algo']) {
-            $this->attributes['password'] = bcrypt($value);
-        }
-    }
 }
